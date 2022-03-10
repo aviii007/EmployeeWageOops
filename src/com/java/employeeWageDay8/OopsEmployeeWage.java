@@ -38,9 +38,33 @@ public class OopsEmployeeWage {
         System.out.println(" ");
     }
 
+    //UC3: Adding Part time Employee and Wage
+    public void partTime() {
+        int Is_Part_Time = 1; // Added part time condition
+        int IS_FULL_TIME = 2;
+        // Calculating daily employee wage
+        final int empWagePerHrs = 20;
+        int empHrs = 0;
+        int empWage = 0;
+        double empcheck = Math.floor(Math.random() * 10) % 3;
+        if (empcheck == Is_Part_Time) {
+            empHrs = 8;
+            System.out.println("The Employee Worked Part Time");
+        } else if (empcheck == IS_FULL_TIME) {
+            empHrs = 16;
+            System.out.println("The Employee Worked Full Time");
+        } else
+            empHrs = 0;
+
+        empWage = empHrs * empWagePerHrs;
+        System.out.println("The Wage of the Employee is :" + " " + empWage);
+        System.out.println(" ");
+    }
+
     public static void main(String[] args) {
         OopsEmployeeWage object = new OopsEmployeeWage();
         object.welcome();
         object.dailyWage();
+        object.partTime();
     }
 }
