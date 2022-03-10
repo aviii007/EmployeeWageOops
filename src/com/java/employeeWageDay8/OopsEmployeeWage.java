@@ -163,6 +163,7 @@ public class OopsEmployeeWage {
     }
 
     public static void main(String[] args) {
+
         OopsEmployeeWage object = new OopsEmployeeWage();
         object.welcome();
         object.dailyWage();
