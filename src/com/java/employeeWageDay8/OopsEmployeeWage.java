@@ -123,8 +123,44 @@ public class OopsEmployeeWage {
         // Formula
         empWage = empHrs * EMP_RATE_PER_HOUR * WORKING_DAYS_IN_MONTH;
         System.out.println("The total Monthly Salary of Employee is: " + empWage);
+        System.out.println(" ");
     }
 
+    //UC6: Till Condition of Maximum Hours or Days is met
+    public void conditionalWage(){
+        final int IS_PART_TIME = 1;
+        final int IS_FULL_TIME = 2;
+        final int EMP_RATE_PER_HR = 20;
+        final int NO_OF_WORKING_DAYS = 20;
+        final int MAX_HR_PER_MONTH = 100;
+
+        int empHrs = 0;
+        int	totalEmpWage = 0;
+        int	totalEmpHrs = 0;
+        int	totalWorkingDays = 0;
+
+        while (totalEmpHrs <= MAX_HR_PER_MONTH && totalWorkingDays <NO_OF_WORKING_DAYS) {
+            totalWorkingDays++;
+            int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+            switch (empCheck) {
+                case IS_FULL_TIME:
+                    empHrs = 8;
+                    break;
+                case IS_PART_TIME:
+                    empHrs = 4;
+                    break;
+                default:
+                    empHrs = 0;
+            }
+            totalEmpHrs += empHrs;
+            System.out.println(" Day: " + totalWorkingDays);
+            System.out.println(" Daily Employee Hour: " + empHrs);
+            System.out.println(" Total Employee hour: " + totalEmpHrs);
+            System.out.println(" ");
+        }
+        totalEmpWage = totalEmpHrs * EMP_RATE_PER_HR;
+        System.out.println(" Employee Wages For a Month: " + totalEmpWage);
+    }
 
     public static void main(String[] args) {
         OopsEmployeeWage object = new OopsEmployeeWage();
@@ -133,5 +169,6 @@ public class OopsEmployeeWage {
         object.partTime();
         object.switchCase();
         object.wageForMonth();
+        object.conditionalWage();
     }
 }
