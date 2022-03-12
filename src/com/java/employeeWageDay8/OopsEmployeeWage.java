@@ -21,8 +21,8 @@ public class OopsEmployeeWage {
         int IS_FULL_TIME = 1;
         // Calculating daily employee wage
         final int empWagePerHrs = 20;
-        int empHrs = 0;
-        int empWage = 0;
+        int empHrs;
+        int empWage;
 
         double empcheck = Math.floor(Math.random() * 10) % 2;
         if (empcheck == IS_FULL_TIME) {
@@ -44,8 +44,8 @@ public class OopsEmployeeWage {
         int IS_FULL_TIME = 2;
         // Calculating daily employee wage
         final int empWagePerHrs = 20;
-        int empHrs = 0;
-        int empWage = 0;
+        int empHrs;
+        int empWage;
         double empcheck = Math.floor(Math.random() * 10) % 3;
         if (empcheck == Is_Part_Time) {
             empHrs = 8;
@@ -67,8 +67,8 @@ public class OopsEmployeeWage {
         final int IS_FULL_TIME = 2;
         // Calculating daily employee wage
         final int empWagePerHrs = 20;
-        int empHrs = 0;
-        int empWage = 0;
+        int empHrs;
+        int empWage;
         double empcheck = Math.floor(Math.random() * 10) % 3; // Check random value between 0,1 and 2
         if (empcheck == Is_Part_Time) {
             empHrs = 8;
@@ -80,23 +80,18 @@ public class OopsEmployeeWage {
         System.out.println("EmpWage :" + " " + empWage);
 
         int empCheck = (int) Math.floor(Math.random() * 10) % 3;
-        switch (empCheck) {
-            case Is_Part_Time:
-                empHrs = 4;
-                break;
-            case IS_FULL_TIME:
-                empHrs = 8;
-                break;
-            default:
-                empHrs = 0;
-        }
+        empHrs = switch (empCheck) {
+            case Is_Part_Time -> 4;
+            case IS_FULL_TIME -> 8;
+            default -> 0;
+        };
         empWage = empHrs * empHrs;
         System.out.println("The Wage of the Employee is: " + " " + empWage);
         System.out.println(" ");
     }
 
     //UC5: Calculating Wages for Month
-    public void wageForMonth(){
+    public void wageForMonth() {
         int IS_FULL_TIME = 1;
         int IS_PART_TIME = 2;
         int EMP_RATE_PER_HOUR = 10;
@@ -104,7 +99,7 @@ public class OopsEmployeeWage {
 
         // Variables
         int empHrs = 0;
-        int empWage = 0;
+        int empWage;
 
         // Computation
         double empCheck = Math.floor(Math.random() * 10) % 3;
@@ -112,8 +107,7 @@ public class OopsEmployeeWage {
         if (empCheck == IS_PART_TIME) {
             empHrs = 4;
             System.out.println("Employee is PartTime");
-        }
-        else if (empCheck == IS_FULL_TIME) {
+        } else if (empCheck == IS_FULL_TIME) {
             empHrs = 8;
             System.out.println("Employee is FullTime");
         } else {
@@ -127,31 +121,26 @@ public class OopsEmployeeWage {
     }
 
     //UC6: Till Condition of Maximum Hours or Days is met
-    public void conditionalWage(){
+    public void conditionalWage() {
         final int IS_PART_TIME = 1;
         final int IS_FULL_TIME = 2;
         final int EMP_RATE_PER_HR = 20;
         final int NO_OF_WORKING_DAYS = 20;
         final int MAX_HR_PER_MONTH = 100;
 
-        int empHrs = 0;
-        int	totalEmpWage = 0;
-        int	totalEmpHrs = 0;
-        int	totalWorkingDays = 0;
+        int empHrs;
+        int totalEmpWage;
+        int totalEmpHrs = 0;
+        int totalWorkingDays = 0;
 
-        while (totalEmpHrs <= MAX_HR_PER_MONTH && totalWorkingDays <NO_OF_WORKING_DAYS) {
+        while (totalEmpHrs <= MAX_HR_PER_MONTH && totalWorkingDays < NO_OF_WORKING_DAYS) {
             totalWorkingDays++;
             int empCheck = (int) Math.floor(Math.random() * 10) % 3;
-            switch (empCheck) {
-                case IS_FULL_TIME:
-                    empHrs = 8;
-                    break;
-                case IS_PART_TIME:
-                    empHrs = 4;
-                    break;
-                default:
-                    empHrs = 0;
-            }
+            empHrs = switch (empCheck) {
+                case IS_FULL_TIME -> 8;
+                case IS_PART_TIME -> 4;
+                default -> 0;
+            };
             totalEmpHrs += empHrs;
             System.out.println(" Day: " + totalWorkingDays);
             System.out.println(" Daily Employee Hour: " + empHrs);
@@ -162,7 +151,7 @@ public class OopsEmployeeWage {
         System.out.println(" Employee Wages For a Month: " + totalEmpWage);
     }
 
-    public static void main(String[] args) {
+public static void main(String[] args) {
 
         OopsEmployeeWage object = new OopsEmployeeWage();
         object.welcome();
@@ -171,5 +160,7 @@ public class OopsEmployeeWage {
         object.switchCase();
         object.wageForMonth();
         object.conditionalWage();
+
+
     }
 }
